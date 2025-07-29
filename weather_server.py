@@ -17,6 +17,7 @@ async def fetch_weather(city: str) -> dict[str, Any] | None:
     :param city: 城市名称（需使用英文，如 Beijing）
     :return: 天气数据字典；若出错返回包含 error 信息的字典
     """
+    print("looking for weather of ", city)
     params = {
         "q": city,
         "appid": API_KEY,
@@ -82,4 +83,5 @@ async def query_weather(city: str) -> str:
 
 if __name__ == "__main__":
     # 以标准 I/O 方式运行 MCP 服务器
+    # asyncio.run(fetch_weather("Beijing"))
     mcp.run(transport='stdio')
